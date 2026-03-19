@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guide Support – Hype SWISS TELECOM</title>
+<style>
+  :root {
+    --hype-green: #2e7d32;
+    --hype-green-light: #4caf50;
+    --hype-orange: #e65100;
+    --hype-orange-light: #ff7043;
+    --hype-red: #c62828;
+    --hype-yellow: #f9a825;
+    --hype-blue: #1565c0;
+    --hype-blue-light: #42a5f5;
+    --bg: #f8f9fa;
+    --card: #ffffff;
+    --border: #e0e0e0;
+    --text: #212121;
+    --text-muted: #616161;
+    --warning-bg: #fff8e1;
+    --warning-border: #f9a825;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 40%, #388e3c 100%);
+    color: white;
+    padding: 2rem 2rem 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+  .header-inner { max-width: 1400px; margin: 0 auto; }
+  .header h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: 0.02em; }
+  .header .subtitle { font-size: 0.85rem; opacity: 0.85; margin-top: 0.2rem; }
+  .header .meta { font-size: 0.75rem; opacity: 0.7; margin-top: 0.4rem; }
+
+  /* NAV */
+  .nav {
+    background: #1b5e20;
+    border-bottom: 2px solid #4caf50;
+  }
+  .nav-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+  .nav a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    padding: 0.6rem 1rem;
+    font-size: 0.82rem;
+    font-weight: 500;
+    transition: background 0.15s, color 0.15s;
+    border-right: 1px solid rgba(255,255,255,0.1);
+  }
+  .nav a:hover { background: rgba(255,255,255,0.15); color: white; }
+
+  /* MAIN */
+  .container { max-width: 1400px; margin: 0 auto; padding: 1.5rem 1.5rem 3rem; }
+
+  /* SECTIONS */
+  .section { margin-bottom: 2rem; }
+  .section-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--hype-green);
+    border-left: 4px solid var(--hype-green);
+    padding-left: 0.75rem;
+    margin-bottom: 1rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+  }
+  .section-title .icon { margin-right: 0.5rem; }
+
+  /* CARDS */
+  .card {
+    background: var(--card);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 0.75rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+
+  /* TABLES */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    background: var(--card);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  }
+  thead tr {
+    background: var(--hype-green);
+    color: white;
+  }
+  thead th {
+    padding: 0.7rem 1rem;
+    font-weight: 600;
+    text-align: left;
+    font-size: 0.83rem;
+    letter-spacing: 0.02em;
+  }
+  tbody tr { border-bottom: 1px solid #f0f0f0; }
+  tbody tr:hover { background: #f5fdf5; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody td { padding: 0.65rem 1rem; vertical-align: top; }
+
+  /* FRUIT BADGES */
+  .fruit-badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .badge-mobile { background: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7; }
+  .badge-internet { background: #e3f2fd; color: #1565c0; border: 1px solid #90caf9; }
+  .badge-tv { background: #fce4ec; color: #ad1457; border: 1px solid #f48fb1; }
+  .badge-fixe { background: #fff3e0; color: #e65100; border: 1px solid #ffcc80; }
+  .badge-pack { background: #f3e5f5; color: #6a1b9a; border: 1px solid #ce93d8; }
+  .badge-hardware { background: #e0f2f1; color: #00695c; border: 1px solid #80cbc4; }
+
+  /* WARNING BOX */
+  .warning {
+    background: var(--warning-bg);
+    border: 1px solid var(--warning-border);
+    border-left: 4px solid var(--warning-border);
+    border-radius: 6px;
+    padding: 0.7rem 1rem;
+    font-size: 0.85rem;
+    color: #5d4037;
+    margin: 0.5rem 0;
+  }
+  .warning strong { color: #e65100; }
+
+  /* FAQ */
+  .faq-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+  }
+  .faq-q {
+    padding: 0.9rem 1.2rem;
+    font-weight: 600;
+    font-size: 0.92rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f9fbe7;
+    color: var(--hype-green);
+    border-bottom: 1px solid var(--border);
+  }
+  .faq-q:hover { background: #f1f8e9; }
+  .faq-a {
+    padding: 0.9rem 1.2rem;
+    font-size: 0.88rem;
+    color: var(--text);
+    line-height: 1.65;
+  }
+  .faq-n {
+    background: var(--hype-green);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-right: 0.5rem;
+  }
+  .faq-q-inner { display: flex; align-items: center; }
+
+  /* ESCALATION MATRIX */
+  .matrix-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .matrix-box {
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+  }
+  .matrix-l1 { background: #e8f5e9; border: 1px solid #a5d6a7; }
+  .matrix-l2 { background: #fff3e0; border: 1px solid #ffcc80; }
+  .matrix-l3 { background: #fce4ec; border: 1px solid #f48fb1; }
+  .matrix-tech { background: #e3f2fd; border: 1px solid #90caf9; }
+  .matrix-box h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .matrix-l1 h4 { color: #2e7d32; }
+  .matrix-l2 h4 { color: #e65100; }
+  .matrix-l3 h4 { color: #c62828; }
+  .matrix-tech h4 { color: #1565c0; }
+  .matrix-box ul { list-style: none; }
+  .matrix-box ul li { font-size: 0.83rem; padding: 0.2rem 0; }
+  .matrix-box ul li::before { content: "▸ "; opacity: 0.7; }
+
+  /* INFO BOXES */
+  .info-box {
+    background: #e3f2fd;
+    border: 1px solid #90caf9;
+    border-left: 4px solid #1565c0;
+    border-radius: 6px;
+    padding: 0.8rem 1rem;
+    font-size: 0.86rem;
+    margin: 0.75rem 0;
+  }
+  .success-box {
+    background: #e8f5e9;
+    border: 1px solid #a5d6a7;
+    border-left: 4px solid #2e7d32;
+    border-radius: 6px;
+    padding: 0.8rem 1rem;
+    font-size: 0.86rem;
+    margin: 0.75rem 0;
+  }
+  .error-box {
+    background: #ffebee;
+    border: 1px solid #ef9a9a;
+    border-left: 4px solid #c62828;
+    border-radius: 6px;
+    padding: 0.8rem 1rem;
+    font-size: 0.86rem;
+    margin: 0.75rem 0;
+  }
+
+  /* CONTACT */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  .contact-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+  }
+  .contact-item .icon { font-size: 1.5rem; margin-bottom: 0.4rem; }
+  .contact-item .label { font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.05em; }
+  .contact-item .value { font-size: 0.95rem; font-weight: 600; color: var(--hype-green); margin-top: 0.2rem; }
+
+  /* PRICE TAG */
+  .price { font-weight: 700; color: var(--hype-green); }
+  .price-secondary { font-size: 0.8rem; color: var(--text-muted); }
+
+  /* ANCHOR OFFSET */
+  section[id] { scroll-margin-top: 120px; }
+
+  /* CHIPS */
+  .chip {
+    display: inline-block;
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 0.15rem 0.4rem;
+    font-size: 0.75rem;
+    margin: 0.1rem;
+  }
+
+  /* LEGAL GRID */
+  .legal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+  .legal-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+  }
+  .legal-card h4 { font-size: 0.9rem; font-weight: 700; color: var(--hype-green); margin-bottom: 0.5rem; border-bottom: 1px solid #e8f5e9; padding-bottom: 0.4rem; }
+  .legal-card p, .legal-card li { font-size: 0.85rem; }
+  .legal-card ul { list-style: none; }
+  .legal-card ul li { padding: 0.2rem 0; }
+  .legal-card ul li::before { content: "• "; color: var(--hype-green); font-weight: 700; }
+
+  /* PRINT */
+  @media print { .header, .nav { position: relative; } }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .matrix-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.2rem; }
+    table { font-size: 0.8rem; }
+    thead th, tbody td { padding: 0.5rem 0.7rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <h1>🍒 Guide Support – Hype SWISS TELECOM</h1>
+    <div class="subtitle">Référence interne – Agents Support Niveau 1 & 2</div>
+    <div class="meta">Généré le 18 mars 2026 · Source : www.hypeswiss.ch · Version 1.0</div>
+  </div>
+</div>
+
+<div class="nav">
+  <div class="nav-inner">
+    <a href="#catalogue">🍓 Catalogue Abonnements</a>
+    <a href="#hardware">📦 Boutique Matériel</a>
+    <a href="#cgv">📋 Conditions Générales</a>
+    <a href="#faq">❓ FAQ 20 Questions</a>
+    <a href="#quickref">⚡ Tableau Rapide</a>
+    <a href="#escalade">🔺 Matrice Escalade</a>
+    <a href="#contact">📞 Contact</a>
+  </div>
+</div>
+
+<div class="container">
+
+
+  <!-- ========== SECTION 1 : CATALOGUE ABONNEMENTS ========== -->
+  <section id="catalogue" class="section">
+    <div class="section-title"><span class="icon">🍓</span>Catalogue des Abonnements Fruités</div>
+
+    <div class="info-box">
+      <strong>Concept Hype SWISS :</strong> Les offres sont nommées par des fruits pour être immédiatement compréhensibles. Chaque fruit correspond à un niveau/catégorie d'offre. Il existe 4 familles principales : <strong>Mobile & Fixe</strong>, <strong>Internet & TV</strong>, <strong>Packs (paniers fruités)</strong>, et des offres spéciales.
+    </div>
+
+    <h3 style="font-size: 1rem; font-weight: 700; color: var(--text-muted); margin: 1rem 0 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">Philosophie des Fruits</h3>
+    <div class="card" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem; padding: 1rem;">
+      <div style="text-align:center; padding: 0.5rem;">
+        <div style="font-size: 1.4rem;">🍎</div>
+        <strong style="font-size: 0.9rem;">Apple-Hype</strong>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem;">Simple, efficace, sans prise de tête</p>
+      </div>
+      <div style="text-align:center; padding: 0.5rem;">
+        <div style="font-size: 1.4rem;">🍌</div>
+        <strong style="font-size: 0.9rem;">Banana-Hype</strong>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem;">Plus d'énergie, plus de vitesse</p>
+      </div>
+      <div style="text-align:center; padding: 0.5rem;">
+        <div style="font-size: 1.4rem;">🍊</div>
+        <strong style="font-size: 0.9rem;">Orange-Hype</strong>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem;">Vitaminé puissance 1G</p>
+      </div>
+      <div style="text-align:center; padding: 0.5rem;">
+        <div style="font-size: 1.4rem;">🍓</div>
+        <strong style="font-size: 0.9rem;">Strawberry-Hype</strong>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem;">Premium juteux, gros appétit de débit</p>
+      </div>
+    </div>
+
+    <!-- SYNC:CATALOGUE:START -->
+    <h3 style="font-size: 1rem; font-weight: 700; color: var(--text-muted); margin: 1.25rem 0 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">📱 Mobile</h3>
+    <table style="margin-bottom: 1.25rem;">
+      <thead><tr>
+        <th>Nom</th><th>Prix /mois</th><th>Mise en service</th>
+        <th>Data CH</th><th>Roaming UE</th><th>Fair Use</th><th>Inclus</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td>🍒 <strong>Cherry-Hype — Mobile Basic</strong></td>
+          <td><span class="price">CHF 25</span></td>
+          <td>CHF 50</td>
+          <td>CH/FL : 30 GB/mois, appels & SMS illimités</td>
+          <td>Zone 1 / UE : appels entrants illimités </td>
+          <td>Fair use : réduction débit à 128 kbit/s après 30 GB </td>
+          <td>1er mois offert + portabilité & SIM offertes </td>
+        </tr>
+        <tr>
+          <td>🍉 <strong>Watermelon-Hype — Mobile Classic</strong></td>
+          <td><span class="price">CHF 32</span></td>
+          <td>CHF 50</td>
+          <td>CH/FL : data illimitée + appels & SMS illimités</td>
+          <td>Zone 1 / UE : 5 GB roaming data + appels & SMS illimités</td>
+          <td>Fair use : réduction débit après 80 GB</td>
+          <td>1er mois offert + portabilité & SIM offertes</td>
+        </tr>
+        <tr>
+          <td>🍈 <strong>Melon-Hype — Mobile Premium</strong></td>
+          <td><span class="price">CHF 41</span></td>
+          <td>CHF 50</td>
+          <td>CH/FL : data illimitée + appels & SMS illimités</td>
+          <td>Zone 1 / UE : 30 GB roaming data + appels & SMS illimités</td>
+          <td>Fair use : réduction débit après 200 GB</td>
+          <td>1er mois offert + portabilité & SIM offertes</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3 style="font-size: 1rem; font-weight: 700; color: var(--text-muted); margin: 1.25rem 0 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">📞 Téléphonie fixe</h3>
+    <table style="margin-bottom: 1.25rem;">
+      <thead><tr>
+        <th>Nom</th><th>Prix /mois</th><th>Mise en service</th>
+        <th>Engagement</th><th>Description</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td>🍑 <strong>Peach-Hype — Téléphonie Basic</strong></td>
+          <td><span class="price">CHF 9</span></td>
+          <td>CHF 50</td>
+          <td>Valide jusqu'à annulation · 30j d'essai</td>
+          <td>Inclus : 10 canaux d’appel + 10 numéros</td>
+        </tr>
+        <tr>
+          <td>🥝 <strong>Kiwi-Hype — Téléphonie Flat</strong></td>
+          <td><span class="price">CHF 15</span></td>
+          <td>CHF 50</td>
+          <td>Valide jusqu'à annulation · 30j d'essai</td>
+          <td>Inclus : 10 canaux + 10 numéros</td>
+        </tr>
+        <tr>
+          <td>🍋 <strong>Lemon-Hype — Téléphonie Flat Plus</strong></td>
+          <td><span class="price">CHF 23</span></td>
+          <td>CHF 50</td>
+          <td>Valide jusqu'à annulation · 30j d'essai</td>
+          <td>Inclus : 10 canaux + 10 numéros</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3 style="font-size: 1rem; font-weight: 700; color: var(--text-muted); margin: 1.25rem 0 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">🌐 Internet</h3>
+    <table style="margin-bottom: 1.25rem;">
+      <thead><tr>
+        <th>Nom</th><th>Prix /mois</th><th>Mise en service</th>
+        <th>Débit</th><th>Engagement</th><th>Inclus</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td>🍎 <strong>Apple-Hype — Internet 20</strong></td>
+          <td><span class="price">CHF 31</span></td>
+          <td>CHF 50</td>
+          <td>Débit : 20 / 20 Mbit/s (upload / download)</td>
+          <td>12 mois minimum · 30j d'essai</td>
+          <td>Inclus : routeur Wi-Fi prêté</td>
+        </tr>
+        <tr>
+          <td>🍌 <strong>Banana-Hype — Internet 100</strong></td>
+          <td><span class="price">CHF 41</span></td>
+          <td>CHF 50</td>
+          <td>Débit : 100 / 100 Mbit/s</td>
+          <td>12 mois minimum · 30j d'essai</td>
+          <td>Inclus : routeur Wi-Fi prêté</td>
+        </tr>
+        <tr>
+          <td>🍊 <strong>Orange-Hype — Internet 1000</strong></td>
+          <td><span class="price">CHF 51</span></td>
+          <td>CHF 50</td>
+          <td>Débit : 100 / 100 Mbit/s</td>
+          <td>12 mois minimum · 30j d'essai</td>
+          <td>Inclus : routeur Wi-Fi prêté</td>
+        </tr>
+        <tr>
+          <td>🍓 <strong>Strawberry-Hype — Internet 10G</strong></td>
+          <td><span class="price">CHF 61</span></td>
+          <td>CHF 50</td>
+          <td>Débit : 10 Gbit/s / 10 Gbit/s</td>
+          <td>12 mois minimum · 30j d'essai</td>
+          <td>Inclus : routeur Wi-Fi prêté</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3 style="font-size: 1rem; font-weight: 700; color: var(--text-muted); margin: 1.25rem 0 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">📺 TV</h3>
+    <table style="margin-bottom: 1.25rem;">
+      <thead><tr>
+        <th>Nom</th><th>Prix /mois</th><th>Mise en service</th><th>Inclus</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td>🥭 <strong>Mango-Hype — TV Classic 2.0</strong></td>
+          <td><span class="price">CHF 17</span></td>
+          <td>CHF 50</td>
+          <td>Inclus : +275 chaînes (dont 243 HD) · TV-Box incluse, WebTV + MobileTV</td>
+        </tr>
+        <tr>
+          <td>🍑 <strong>Apricot-Hype — TV Premium 2.0</strong></td>
+          <td><span class="price">CHF 23</span></td>
+          <td>CHF 50</td>
+          <td>Inclus : chaînes + box + Web/Mobile · Jusqu’à 500 enregistrements</td>
+        </tr>
+        <tr>
+          <td>🍎 <strong>Pineapple-Hype — TV Top 2.0</strong></td>
+          <td><span class="price">CHF 27</span></td>
+          <td>CHF 50</td>
+          <td>Inclus : Premium + Replay sans pub · Saut des blocs pub (sur chaînes concernées)</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3 style="font-size: 1rem; font-weight: 700; color: var(--text-muted); margin: 1.25rem 0 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">🧺 Paniers Fruités (Packs combinés)</h3>
+    <table style="margin-bottom: 1.25rem;">
+      <thead><tr>
+        <th>Nom</th><th>Prix /mois</th><th>Mise en service</th>
+        <th>Engagement</th><th>Contenu</th><th>Inclus</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td>🫐 <strong>Blueberry-Hype — Pack Duo Maison</strong></td>
+          <td><span class="price">CHF 45</span></td>
+          <td>CHF 50</td>
+          <td>Sans engagement · 30j d'essai</td>
+          <td>Apple-Hype — Internet 20 (CHF 31.– / mois) + Mango-Hype — TV Classic 2.0 (CHF 17.- / mois)</td>
+          <td>1 mois gratuit · 5% réduction mensuelle</td>
+        </tr>
+        <tr>
+          <td>🍇 <strong>Raspberry-Hype — Pack Duo Nomade</strong></td>
+          <td><span class="price">CHF 53</span></td>
+          <td>CHF 50</td>
+          <td>Sans engagement · 30j d'essai</td>
+          <td>Apple-Hype — Internet 20 (CHF 31.– / mois) + Cherry-Hype — Mobile Basic (CHF 25.– / mois)</td>
+          <td>1 mois gratuit · 5% réduction mensuelle</td>
+        </tr>
+        <tr>
+          <td>🍊 <strong>Grapefruit-Hype — Pack Total</strong></td>
+          <td><span class="price">CHF 99</span></td>
+          <td>CHF 50</td>
+          <td>Sans engagement · 30j d'essai</td>
+          <td>Banana-Hype — Internet 100 (CHF 41.- / mois) + Mango-Hype — TV Classic 2.0 (CHF 17.- /mois) + Watermelon-Hype — Mobile Classic (CHF 32.- / mois) + Kiwi-Hype — Téléphonie Flat (CHF 15.- / mois)</td>
+          <td>1 mois gratuit · 5% réduction mensuelle</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="success-box">
+      <strong>Catalogue synchronisé depuis l'API Wix le 19 mars 2026 :</strong><br>
+      📱 Mobile : CHF 25 / 32 / 41 &nbsp;·&nbsp; 📞 Fixe : CHF 9 / 15 / 23 &nbsp;·&nbsp; 🌐 Internet : CHF 31 / 41 / 51 / 61 &nbsp;·&nbsp; 📺 TV : CHF 17 / 23 / 27<br>
+      🧺 Packs : CHF 45 / 53 / 99<br>
+      Mise en service : <strong>CHF 50</strong> sur tous les plans
+    </div>
+    <!-- SYNC:CATALOGUE:END -->
+
+    <div class="info-box" style="background: #f3e5f5; border-color: #ce93d8; border-left-color: #6a1b9a;">
+      <strong>📄 Pages de tarifs :</strong>
+      <ul style="list-style: none; margin-top: 0.4rem; font-size: 0.85rem;">
+        <li>• <a href="https://www.hypeswiss.ch/pricing-plans/tarifs-abonnements" target="_blank" style="color: #6a1b9a;">hypeswiss.ch/pricing-plans/tarifs-abonnements</a> — Page tarifaire principale</li>
+        <li>• <a href="https://www.hypeswiss.ch/pricing-plans/plans-pricing" target="_blank" style="color: #6a1b9a;">hypeswiss.ch/pricing-plans/plans-pricing</a> — Vue alternative</li>
+        <li>• <a href="https://www.hypeswiss.ch/fruit-de-la-passion" target="_blank" style="color: #6a1b9a;">hypeswiss.ch/fruit-de-la-passion</a> — Page "Abos Fruités"</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 2 : BOUTIQUE MATÉRIEL ========== -->
+  <section id="hardware" class="section">
+    <div class="section-title"><span class="icon">📦</span>Boutique Vitaminée – Matériel & Accessoires</div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Produit</th>
+          <th>SKU</th>
+          <th>Prix comptant</th>
+          <th>Paiement en plusieurs fois</th>
+          <th>État</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Hype SWISS TV 75'' – LED Android Smart TV</strong></td>
+          <td><span class="chip">hypeSWISS11</span></td>
+          <td><span class="price">CHF 599</span></td>
+          <td><span class="fruit-badge" style="background:#e8f5e9;color:#2e7d32;border:1px solid #a5d6a7;">Disponible</span></td>
+          <td><span class="fruit-badge badge-hardware">En stock</span></td>
+          <td>Android Smart TV, 75 pouces</td>
+        </tr>
+        <tr>
+          <td><strong>Hype SWISS Mobile</strong></td>
+          <td><span class="chip">hypeSWISS1</span></td>
+          <td><span class="price">CHF 329</span></td>
+          <td><span class="fruit-badge" style="background:#e8f5e9;color:#2e7d32;border:1px solid #a5d6a7;">Disponible</span></td>
+          <td><span class="fruit-badge badge-hardware">En stock</span></td>
+          <td>Téléphone mobile Hype SWISS</td>
+        </tr>
+        <tr>
+          <td><strong>Hype SWISS TV 65'' – LED Android Smart TV</strong></td>
+          <td><span class="chip">hypeSWISS10</span></td>
+          <td><span class="price">CHF 499</span></td>
+          <td><span class="fruit-badge" style="background:#e8f5e9;color:#2e7d32;border:1px solid #a5d6a7;">Disponible</span></td>
+          <td><span class="fruit-badge badge-hardware">En stock</span></td>
+          <td>Android Smart TV, 65 pouces</td>
+        </tr>
+        <tr>
+          <td><strong>Hype SWISS TV 55'' – LED Android Smart TV</strong></td>
+          <td><span class="chip">hypeSWISS9</span></td>
+          <td><span class="price">CHF 399</span></td>
+          <td><span class="fruit-badge" style="background:#e8f5e9;color:#2e7d32;border:1px solid #a5d6a7;">Disponible</span></td>
+          <td><span class="fruit-badge badge-hardware">En stock</span></td>
+          <td>Android Smart TV, 55 pouces</td>
+        </tr>
+        <tr>
+          <td><strong>Hype SWISS Fritz Box</strong></td>
+          <td><span class="chip">hypeSWISS2</span></td>
+          <td><span class="price">CHF 195</span></td>
+          <td><span class="fruit-badge" style="background:#e8f5e9;color:#2e7d32;border:1px solid #a5d6a7;">Disponible</span></td>
+          <td><span class="fruit-badge badge-hardware">En stock</span></td>
+          <td>Routeur/modem Fritz!Box pour Internet</td>
+        </tr>
+        <tr>
+          <td><strong>Hype SWISS TV 50'' – LED Android Smart TV</strong></td>
+          <td><span class="chip">hypeSWISS8</span></td>
+          <td><span class="price">CHF 279</span></td>
+          <td><span class="fruit-badge" style="background:#e8f5e9;color:#2e7d32;border:1px solid #a5d6a7;">Disponible</span></td>
+          <td><span class="fruit-badge badge-hardware">En stock</span></td>
+          <td>Android Smart TV, 50 pouces</td>
+        </tr>
+        <tr>
+          <td><strong>Hype SWISS TV 43'' – LED Android Smart TV</strong></td>
+          <td><span class="chip">hypeSWISS7</span></td>
+          <td><span class="price">CHF 199</span></td>
+          <td><span class="fruit-badge" style="background:#e8f5e9;color:#2e7d32;border:1px solid #a5d6a7;">Disponible</span></td>
+          <td><span class="fruit-badge badge-hardware">En stock</span></td>
+          <td>Android Smart TV, 43 pouces</td>
+        </tr>
+        <tr>
+          <td><strong>Hype SWISS TV 32'' – LED Android Smart TV</strong></td>
+          <td><span class="chip">hypeSWISS6</span></td>
+          <td><span class="price">CHF 149</span></td>
+          <td><span class="fruit-badge" style="background:#e8f5e9;color:#2e7d32;border:1px solid #a5d6a7;">Disponible</span></td>
+          <td><span class="fruit-badge badge-hardware">En stock</span></td>
+          <td>Android Smart TV, 32 pouces</td>
+        </tr>
+        <tr>
+          <td><strong>Hype SWISS Téléphone sans fil</strong></td>
+          <td><span class="chip">hypeSWISS4</span></td>
+          <td><span class="price">CHF 91</span></td>
+          <td><span class="fruit-badge" style="background:#fff3e0;color:#e65100;border:1px solid #ffcc80;">Voir conditions</span></td>
+          <td><span class="fruit-badge badge-hardware">En stock</span></td>
+          <td>Téléphone fixe sans fil</td>
+        </tr>
+        <tr>
+          <td><strong>Hype SWISS Téléphone Fritz!</strong></td>
+          <td><span class="chip">hypeSWISS5</span></td>
+          <td><span class="price">CHF 85,50</span></td>
+          <td><span class="fruit-badge" style="background:#fff3e0;color:#e65100;border:1px solid #ffcc80;">Voir conditions</span></td>
+          <td><span class="fruit-badge badge-hardware">En stock</span></td>
+          <td>Téléphone fixe Fritz!</td>
+        </tr>
+        <tr>
+          <td><strong>Hype SWISS Smart TV Stick</strong></td>
+          <td><span class="chip">hypeSWISS3</span></td>
+          <td><span class="price">CHF 19,90</span></td>
+          <td><span class="fruit-badge" style="background:#fce4ec;color:#880e4f;border:1px solid #f48fb1;">Non disponible</span></td>
+          <td><span class="fruit-badge badge-hardware">En stock</span></td>
+          <td>Clé HDMI Smart TV</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="info-box" style="background:#e8f5e9; border-color:#a5d6a7; border-left-color:#2e7d32; margin-top: 1rem;">
+      <strong>💳 Paiement en plusieurs fois — Matériel Hype SWISS</strong>
+      <ul style="margin-top: 0.5rem; list-style: none;">
+        <li>▸ Le paiement échelonné est disponible directement au <strong>checkout sur hypeswiss.ch</strong> pour les produits éligibles</li>
+        <li>▸ Les modalités (nombre de mensualités, frais éventuels) sont affichées au moment du paiement selon le produit</li>
+        <li>▸ Pour les petits articles (Smart TV Stick CHF 19.90), le paiement en plusieurs fois n'est pas proposé</li>
+        <li>▸ Pour toute demande spécifique ou devis sur mesure : <strong>hype@hype.swiss</strong> | <strong>+41 22 404 05 55</strong></li>
+      </ul>
+    </div>
+
+    <div class="success-box" style="margin-top: 0.75rem;">
+      <strong>Politique boutique :</strong> Tous les produits sont marqués "Nouveauté". Livraison Suisse uniquement sous 1–15 jours ouvrés, frais fixes CHF 9.–. Droit de retour 14 jours. Installation optionnelle CHF 50.– forfait de base.
+    </div>
+  </section>
+
+  <!-- ========== SECTION 3 : CGV SYNTHÈSE ========== -->
+  <section id="cgv" class="section">
+    <div class="section-title"><span class="icon">📋</span>Conditions Générales – Synthèse Opérationnelle</div>
+
+    <div class="legal-grid">
+
+      <div class="legal-card">
+        <h4>🏢 Entité légale</h4>
+        <ul>
+          <li><strong>Société :</strong> Hype Soft Sàrl</li>
+          <li><strong>IDE :</strong> CHE-432.029.501</li>
+          <li><strong>Adresse :</strong> Rue des Gares 12, CH-1201 Genève</li>
+          <li><strong>Email :</strong> hype@hype.swiss</li>
+          <li><strong>Tél :</strong> +41 22 404 05 55</li>
+          <li><strong>Droit applicable :</strong> Droit suisse</li>
+          <li><strong>For :</strong> Tribunaux Canton de Genève</li>
+        </ul>
+      </div>
+
+      <div class="legal-card">
+        <h4>📅 Durée & Engagement (Télécom)</h4>
+        <ul>
+          <li><strong>Durée minimale :</strong> 12 mois</li>
+          <li><strong>Renouvellement :</strong> Automatique par périodes de 12 mois</li>
+          <li><strong>Résiliation normale :</strong> Préavis 2 mois avant échéance, par écrit</li>
+          <li><strong>Résiliation anticipée :</strong> Préavis 2 mois + indemnité 2 mois d'abonnement</li>
+          <li>Les prestations déjà exécutées restent dues</li>
+        </ul>
+      </div>
+
+      <div class="legal-card">
+        <h4>📦 Livraison</h4>
+        <ul>
+          <li><strong>Zone :</strong> Suisse uniquement</li>
+          <li><strong>Délai :</strong> 1 à 15 jours ouvrés (indicatif)</li>
+          <li><strong>Frais :</strong> CHF 9.– forfait fixe par commande</li>
+          <li>Vérifier état colis à réception</li>
+          <li>Signaler dommages rapidement (photos recommandées)</li>
+        </ul>
+      </div>
+
+      <div class="legal-card">
+        <h4>🔄 Retours (14 jours)</h4>
+        <ul>
+          <li><strong>Délai :</strong> 14 jours dès réception</li>
+          <li>Produit non utilisé, complet, emballage d'origine</li>
+          <li><strong>Frais retour :</strong> À la charge du client</li>
+          <li>Exception : erreur de livraison ou défaut avéré → frais offerts</li>
+          <li><strong>Exclusions :</strong> Produits personnalisés, licences/activations, prestations déjà exécutées, produits scellés ouverts</li>
+          <li>Remboursement après contrôle (déductions possibles)</li>
+        </ul>
+      </div>
+
+      <div class="legal-card">
+        <h4>🔧 Installation</h4>
+        <ul>
+          <li><strong>Forfait :</strong> CHF 50.– installation de base</li>
+          <li>Frais supplémentaires possibles (câblage, déplacement, configuration avancée)</li>
+          <li>Prestations déjà exécutées non remboursables</li>
+          <li>Activation : incluse dans le forfait CHF 50 de mise en service</li>
+        </ul>
+      </div>
+
+      <div class="legal-card">
+        <h4>💳 Retard de paiement</h4>
+        <ul>
+          <li><strong>Intérêts moratoires :</strong> 5%/an (art. 104 CO)</li>
+          <li><strong>Frais de rappel :</strong> CHF 30.– / envoi</li>
+          <li><strong>Suspension :</strong> Après 10 jours de retard, sans préavis</li>
+          <li><strong>Résiliation :</strong> Après 30 jours, solde exigible immédiatement</li>
+          <li><strong>Remise en service :</strong> CHF 100.–</li>
+        </ul>
+      </div>
+
+      <div class="legal-card">
+        <h4>📱 Portabilité numéro</h4>
+        <ul>
+          <li>Les CGV mentionnent les services VoIP/SIP et numéros</li>
+          <li>Portabilité entrante et sortante disponible</li>
+          <li>SIM et portabilité offertes sur les offres Mobile</li>
+          <li>→ Contacter hype@hype.swiss pour les démarches</li>
+        </ul>
+      </div>
+
+      <div class="legal-card">
+        <h4>⚖️ Fair Use (Télécom)</h4>
+        <ul>
+          <li>Usage raisonnable et conforme obligatoire</li>
+          <li><strong>Interdits :</strong> robocalls, spam, spoofing, perturbation réseau, fraude</li>
+          <li>Hype Soft peut limiter, suspendre ou résilier en cas d'abus</li>
+          <li>Facturation des coûts d'intervention possibles</li>
+        </ul>
+      </div>
+
+      <div class="legal-card">
+        <h4>🛡️ Garantie produits</h4>
+        <ul>
+          <li>Garantie légale suisse (défauts, art. 197 CO)</li>
+          <li>Garantie fabricant généralement 2 ans (selon fiche produit)</li>
+          <li><strong>Exclusions :</strong> usure normale, mauvaise utilisation, humidité/liquide, surtension, modifications non autorisées</li>
+        </ul>
+      </div>
+
+      <div class="legal-card">
+        <h4>👔 Pro vs Particuliers</h4>
+        <ul>
+          <li>CGV applicables aux particuliers ET professionnels</li>
+          <li>Mention "Pros & Particuliers" sur le site</li>
+          <li>Conditions spécifiques pro : sur devis, contacter hype@hype.swiss</li>
+          <li>Devis professionnel : contact commercial requis</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== SECTION 4 : FAQ ========== -->
+  <section id="faq" class="section">
+    <div class="section-title"><span class="icon">❓</span>FAQ Support – 20 Questions Fréquentes</div>
+
+    <div class="faq-item">
+      <div class="faq-q"><div class="faq-q-inner"><div class="faq-n">1</div>Comment puis-je résilier mon abonnement Hype SWISS ?</div></div>
+      <div class="faq-a">
+        La résiliation doit être faite <strong>par écrit</strong> (courrier recommandé ou voie électronique certifiée) avec un <strong>préavis de 2 mois avant la date d'échéance</strong> de la période contractuelle en cours. L'abonnement a une durée minimale de 12 mois et se renouvelle automatiquement par périodes de 12 mois. La résiliation prend effet à la fin de la période en cours. <br><br>
+        <strong>Exemple :</strong> Si votre contrat expire le 31 décembre, vous devez envoyer votre résiliation avant le 31 octobre.<br><br>
+        <span style="color: var(--hype-green);">Contact :</span> hype@hype.swiss | +41 22 404 05 55
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><div class="faq-q-inner"><div class="faq-n">2</div>Que se passe-t-il si je résilie avant la fin de mon engagement ?</div></div>
+      <div class="faq-a">
+        En cas de résiliation anticipée (avant la fin de la période minimale de 12 mois ou en cours de période renouvelée) :
+        <ul style="list-style: none; margin-top: 0.5rem;">
+          <li>▸ Préavis de <strong>2 mois</strong> requis (par écrit)</li>
+          <li>▸ <strong>Indemnité fixe</strong> : 2 mois du prix mensuel de l'abonnement résilié</li>
+          <li>▸ Les montants déjà échus restent dus</li>
+          <li>▸ Les prestations déjà exécutées (installation, interventions) restent dues</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><div class="faq-q-inner"><div class="faq-n">3</div>Comment retourner un produit acheté ?</div></div>
+      <div class="faq-a">
+        Vous disposez de <strong>14 jours dès réception</strong> pour retourner un produit. Conditions :
+        <ul style="list-style: none; margin-top: 0.5rem;">
+          <li>▸ Produit non utilisé, complet, en parfait état</li>
+          <li>▸ Emballage d'origine avec tous les accessoires</li>
+          <li>▸ <strong>Frais de retour à votre charge</strong> (sauf si erreur de notre part ou défaut avéré)</li>
+        </ul>
+        <strong>Exceptions (retour refusé) :</strong> produits personnalisés, licences/activations, services déjà exécutés.<br><br>
+        Contactez-nous à <strong>hype@hype.swiss</strong> avant de renvoyer le colis.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><div class="faq-q-inner"><div class="faq-n">4</div>Combien coûte la livraison et quel est le délai ?</div></div>
+      <div class="faq-a">
+        <ul style="list-style: none;">
+          <li>▸ <strong>Frais de livraison :</strong> CHF 9.– forfait fixe par commande (Suisse uniquement)</li>
+          <li>▸ <strong>Délai :</strong> 1 à 15 jours ouvrés (indicatif, selon disponibilité et transport)</li>
+          <li>▸ <strong>Zone :</strong> Suisse uniquement</li>
+        </ul>
+        À réception, vérifiez l'état du colis et signalez immédiatement tout dommage apparent (avec photos).
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><div class="faq-q-inner"><div class="faq-n">5</div>Mon abonnement se renouvelle-t-il automatiquement ?</div></div>
+      <div class="faq-a">
+        <strong>Oui.</strong> À l'issue de la durée minimale de 12 mois, l'abonnement <strong>se reconduit automatiquement</strong> par périodes successives de 12 mois, sauf résiliation avec préavis de 2 mois avant l'échéance. Si vous ne souhaitez pas renouveler, vous devez <strong>agir au moins 2 mois avant la date d'anniversaire</strong> de votre contrat.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><div class="faq-q-inner"><div class="faq-n">6</div>Mon service a été suspendu, pourquoi et comment le rétablir ?</div></div>
+      <div class="faq-a">
+        <strong>Cause probable : impayé.</strong> En cas de non-paiement :
+        <ul style="list-style: none; margin-top: 0.4rem;">
+          <li>▸ Suspension automatique après <strong>10 jours de retard</strong></li>
+          <li>▸ Résiliation de plein droit après <strong>30 jours</strong></li>
+        </ul>
+        <strong>Pour rétablir :</strong> Régularisez le paiement en souffrance + frais de remise en service : <strong>CHF 100.–</strong>.<br>
+        Contactez le support : hype@hype.swiss | +41 22 404 05 55
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><div class="faq-q-inner"><div class="faq-n">7</div>Quelle est la différence entre les différents fruits (offres) ?</div></div>
+      <div class="faq-a">
+        Chaque fruit représente un niveau d'offre :
+        <ul style="list-style: none; margin-top: 0.4rem;">
+          <li>▸ <strong>🍎 Apple-Hype :</strong> Entrée de gamme – simple, efficace, sans prise de tête</li>
+          <li>▸ <strong>🍌 Banana-Hype :</strong> Milieu de gamme – plus d'énergie, plus de vitesse</li>
+          <li>▸ <strong>🍊 Orange-Hype :</strong> Internet 1Gbps – vitaminé puissance 1G</li>
+          <li>▸ <strong>🍓 Strawberry-Hype :</strong> Premium – gros appétit de débit</li>
+          <li>▸ <strong>🍉 Watermelon-Hype :</strong> Mobile Classic – data illimitée CH + roaming UE, CHF 32/mois</li>
+        </ul>
+        Les prix détaillés de toutes les offres sont sur <a href="https://www.hypeswiss.ch/pricing-plans/tarifs-abonnements" style="color: var(--hype-green);">hypeswiss.ch/pricing-plans/tarifs-abonnements</a>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><div class="faq-q-inner"><div class="faq-n">8</div>Proposez-vous des offres pour les professionnels/entreprises ?</div></div>
+      <div class="faq-a">
+        <strong>Oui.</strong> Hype SWISS propose des offres pour les <strong>Pros & Particuliers</strong> (mention visible sur le site). Le service couvre : Mobile & Fixe, Internet Wi-Fi, TV, Téléphonie VoIP/SIP, et options PBX pour les entreprises.<br><br>
+        Les conditions spécifiques pro (tarifs dédiés, SLA, engagement) ne sont pas détaillées publiquement — <strong>contactez le commercial</strong> pour un devis : hype@hype.swiss
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><div class="faq-q-inner"><div class="faq-n">9</div>Puis-je conserver mon numéro de téléphone (portabilité) ?</div></div>
+      <div class="faq-a">
+        La portabilité de numéro est disponible. SIM + portabilité offertes sur les offres Mobile (Cherry, Watermelon, Melon).<br><br>
+        Pour transférer un numéro existant : contactez hype@hype.swiss | +41 22 404 05 55 avec votre numéro actuel et opérateur sortant.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><div class="faq-q-inner"><div class="faq-n">10</div>La promotion "1 mois offert" s'applique-t-elle à tous les plans ?</div></div>
+      <div class="faq-a">
+        La promotion <strong>"1 mois offert"</strong> s'applique à tous les nouveaux abonnements (Pros & Particuliers). Confirmé sur toutes les offres Mobile, Internet et Packs. Téléphonie fixe : 30 jours d'essai gratuit. Contactez hype@hype.swiss pour confirmer l'éligibilité sur une offre spécifique.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><div class="faq-q-inner"><div class="faq-n">11</div>Ma box / mon équipement est en panne, que faire ?</div></div>
+      <div class="faq-a">
+        <ol style="list-style: none; margin-top: 0.4rem;">
+          <li>▸ <strong>1. Redémarrez</strong> votre équipement (débrancher 30 secondes)</li>
+          <li>▸ <strong>2. Vérifiez</strong> les câbles et connexions</li>
+          <li>▸ <strong>3. Consultez la FAQ</strong> sur hypeswiss.ch/a-propos (section FAQ)</li>
+          <li>▸ <strong>4. Contactez le support 24/7 :</strong> +41 22 404 05 55 | hype@hype.swiss</li>
+        </ol>
+        Si l'équipement est en panne dans les 14 jours : droit de retour. Après 14 jours : garantie légale (2 ans pour défauts cachés). Pannes dues à mauvaise utilisation, surtension, liquide : hors garantie.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><div class="faq-q-inner"><div class="faq-n">12</div>Où puis-je trouver le Hype SWISS CENTER (boutique physique) ?</div></div>
+      <div class="faq-a">
+        <strong>Hype SWISS CENTER</strong> — Boutique et showroom :<br>
+        📍 <strong>Rue des Gares 12, CH-1201 Genève, Suisse</strong><br><br>
+        📞 +41 22 404 05 55<br>
+        📧 hype@hype.swiss<br>
+        🕐 Horaires : contacter le +41 22 404 05 55 ou hype@hype.swiss pour confirmation
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><div class="faq-q-inner"><div class="faq-n">13</div>Le service est-il disponible dans toute la Suisse ?</div></div>
+      <div class="faq-a">
+        La livraison matériel est disponible en <strong>Suisse uniquement</strong>. Les services télécom (Internet, Mobile, TV, Fixe) s'appuient sur les réseaux partenaires suisses (30+ ans d'expérience). Contactez hype@hype.swiss | +41 22 404 05 55 pour vérifier la disponibilité à votre adresse.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><div class="faq-q-inner"><div class="faq-n">14</div>Comment modifier mon abonnement (upgrade/downgrade) ?</div></div>
+      <div class="faq-a">
+        Contactez le support pour toute demande de modification : hype@hype.swiss | +41 22 404 05 55<br>
+        Tout changement peut impacter la durée d'engagement. Demandez une confirmation écrite.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><div class="faq-q-inner"><div class="faq-n">15</div>Y a-t-il un engagement minimum ? Puis-je tester le service ?</div></div>
+      <div class="faq-a">
+        <ul style="list-style: none;">
+          <li>▸ <strong>Durée minimale standard :</strong> 12 mois (télécom)</li>
+          <li>▸ La page de tarifs mentionne <strong>"Essayer 30 jours gratuitement"</strong> pour certains plans</li>
+          <li>▸ La promotion "1 mois offert" est active</li>
+        </ul>
+        Mobile/Internet : 1 mois offert + 30 jours d'essai. Téléphonie fixe : 30 jours d'essai gratuit, sans engagement. Packs : 30 jours d'essai, sans engagement.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><div class="faq-q-inner"><div class="faq-n">16</div>J'ai reçu un colis endommagé, que faire ?</div></div>
+      <div class="faq-a">
+        <ol style="list-style: none;">
+          <li>▸ <strong>1. Documenter :</strong> Photographiez le colis et le produit endommagé immédiatement</li>
+          <li>▸ <strong>2. Signaler :</strong> Contactez-nous dans les meilleurs délais : hype@hype.swiss</li>
+          <li>▸ <strong>3. Conserver :</strong> Gardez l'emballage et le produit jusqu'à résolution</li>
+        </ol>
+        En cas de <strong>défaut avéré ou erreur de livraison</strong>, les frais de retour sont pris en charge par Hype SWISS.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><div class="faq-q-inner"><div class="faq-n">17</div>Quels modes de paiement acceptez-vous ?</div></div>
+      <div class="faq-a">
+        Les moyens de paiement disponibles sont affichés au moment du checkout sur hypeswiss.ch.<br><br>
+        <strong>Paiement en plusieurs fois (matériel) :</strong> disponible pour les produits hardware éligibles (TV, téléphones, Fritz Box, etc.) — les modalités de mensualités s'affichent directement au checkout selon le produit sélectionné.<br><br>
+        Pour toute question sur la facturation ou un arrangement de paiement spécifique : hype@hype.swiss | +41 22 404 05 55
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><div class="faq-q-inner"><div class="faq-n">18</div>Mon débit est plus lent que prévu, comment signaler le problème ?</div></div>
+      <div class="faq-a">
+        Les performances (débits, couverture) peuvent dépendre de facteurs techniques indépendants (réseaux tiers, équipement, bâtiment, interférences). Hype SWISS met en œuvre des <strong>moyens raisonnables</strong> pour la continuité de service sans garantie d'absence d'interruption.<br><br>
+        <strong>Démarche :</strong>
+        <ol style="list-style: none; margin-top: 0.4rem;">
+          <li>▸ Tester depuis plusieurs appareils et positions</li>
+          <li>▸ Vérifier la charge du réseau (heure de pointe)</li>
+          <li>▸ Redémarrer la box/routeur</li>
+          <li>▸ Contacter le support 24/7 : +41 22 404 05 55</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><div class="faq-q-inner"><div class="faq-n">19</div>Que couvre exactement la garantie sur les produits ?</div></div>
+      <div class="faq-a">
+        <strong>Garantie légale suisse</strong> (art. 197 CO) : réparation ou remplacement pour défauts de conformité.<br>
+        <strong>Garantie fabricant :</strong> Généralement 2 ans standard (vérifier sur la fiche produit).<br><br>
+        <strong>Non couvert par la garantie :</strong>
+        <ul style="list-style: none; margin-top: 0.3rem;">
+          <li>▸ Usure normale</li>
+          <li>▸ Mauvaise utilisation</li>
+          <li>▸ Dommages physiques, chocs</li>
+          <li>▸ Humidité / liquide</li>
+          <li>▸ Surtension électrique</li>
+          <li>▸ Modifications / interventions non autorisées</li>
+          <li>▸ Accessoires consommables</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q"><div class="faq-q-inner"><div class="faq-n">20</div>Comment contacter le support ? Y a-t-il un support 24/7 ?</div></div>
+      <div class="faq-a">
+        <strong>Oui, le support est disponible 24h/24, 7j/7.</strong>
+        <ul style="list-style: none; margin-top: 0.4rem;">
+          <li>▸ 📞 <strong>Téléphone :</strong> +41 22 404 05 55</li>
+          <li>▸ 📧 <strong>Email :</strong> hype@hype.swiss</li>
+          <li>▸ 📍 <strong>Boutique :</strong> Hype SWISS CENTER, Rue des Gares 12, CH-1201 Genève</li>
+          <li>▸ 💬 <strong>Chat en ligne :</strong> Via le widget sur hypeswiss.ch (Wix Assistant)</li>
+          <li>▸ 📋 <strong>FAQ :</strong> hypeswiss.ch/a-propos (section FAQ)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 5 : TABLEAU QUICK REF ========== -->
+  <section id="quickref" class="section">
+    <div class="section-title"><span class="icon">⚡</span>Tableau de Correspondance Rapide</div>
+
+    <!-- SYNC:QUICKREF:START -->
+    <table>
+      <thead>
+        <tr>
+          <th>Fruit</th>
+          <th>Catégorie</th>
+          <th>Mise en service</th>
+          <th>Prix /mois</th>
+          <th>Engagement</th>
+          <th>Data / Débit</th>
+          <th>Inclus clés</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>🍒 <strong>Cherry-Hype — Mobile Basic</strong></td>
+          <td><span class="fruit-badge badge-mobile">Mobile</span></td>
+          <td><span class="price">CHF 50</span></td>
+          <td><span class="price">CHF 25</span></td>
+          <td>12 mois</td>
+          <td>CH/FL : 30 GB/mois, appels & SMS illimités</td>
+          <td>CH/FL : 30 GB/mois, appels & SMS illimités</td>
+        </tr>
+        <tr>
+          <td>🍉 <strong>Watermelon-Hype — Mobile Classic</strong></td>
+          <td><span class="fruit-badge badge-mobile">Mobile</span></td>
+          <td><span class="price">CHF 50</span></td>
+          <td><span class="price">CHF 32</span></td>
+          <td>12 mois</td>
+          <td>CH/FL : data illimitée + appels & SMS illimités</td>
+          <td>CH/FL : data illimitée + appels & SMS illimités</td>
+        </tr>
+        <tr>
+          <td>🍈 <strong>Melon-Hype — Mobile Premium</strong></td>
+          <td><span class="fruit-badge badge-mobile">Mobile</span></td>
+          <td><span class="price">CHF 50</span></td>
+          <td><span class="price">CHF 41</span></td>
+          <td>12 mois</td>
+          <td>CH/FL : data illimitée + appels & SMS illimités</td>
+          <td>CH/FL : data illimitée + appels & SMS illimités</td>
+        </tr>
+        <tr>
+          <td>🍑 <strong>Peach-Hype — Téléphonie Basic</strong></td>
+          <td><span class="fruit-badge badge-fixe">Fixe</span></td>
+          <td><span class="price">CHF 50</span></td>
+          <td><span class="price">CHF 9</span></td>
+          <td>Sans engagement</td>
+          <td>—</td>
+          <td>Inclus : 10 canaux d’appel + 10 numéros</td>
+        </tr>
+        <tr>
+          <td>🥝 <strong>Kiwi-Hype — Téléphonie Flat</strong></td>
+          <td><span class="fruit-badge badge-fixe">Fixe</span></td>
+          <td><span class="price">CHF 50</span></td>
+          <td><span class="price">CHF 15</span></td>
+          <td>Sans engagement</td>
+          <td>—</td>
+          <td>Inclus : 10 canaux + 10 numéros</td>
+        </tr>
+        <tr>
+          <td>🍋 <strong>Lemon-Hype — Téléphonie Flat Plus</strong></td>
+          <td><span class="fruit-badge badge-fixe">Fixe</span></td>
+          <td><span class="price">CHF 50</span></td>
+          <td><span class="price">CHF 23</span></td>
+          <td>Sans engagement</td>
+          <td>—</td>
+          <td>Inclus : 10 canaux + 10 numéros</td>
+        </tr>
+        <tr>
+          <td>🍎 <strong>Apple-Hype — Internet 20</strong></td>
+          <td><span class="fruit-badge badge-internet">Internet</span></td>
+          <td><span class="price">CHF 50</span></td>
+          <td><span class="price">CHF 31</span></td>
+          <td>12 mois</td>
+          <td>Débit : 20 / 20 Mbit/s (upload / download)</td>
+          <td>Débit : 20 / 20 Mbit/s (upload / download)</td>
+        </tr>
+        <tr>
+          <td>🍌 <strong>Banana-Hype — Internet 100</strong></td>
+          <td><span class="fruit-badge badge-internet">Internet</span></td>
+          <td><span class="price">CHF 50</span></td>
+          <td><span class="price">CHF 41</span></td>
+          <td>12 mois</td>
+          <td>Débit : 100 / 100 Mbit/s</td>
+          <td>Débit : 100 / 100 Mbit/s</td>
+        </tr>
+        <tr>
+          <td>🍊 <strong>Orange-Hype — Internet 1000</strong></td>
+          <td><span class="fruit-badge badge-internet">Internet</span></td>
+          <td><span class="price">CHF 50</span></td>
+          <td><span class="price">CHF 51</span></td>
+          <td>12 mois</td>
+          <td>Débit : 100 / 100 Mbit/s</td>
+          <td>Débit : 100 / 100 Mbit/s</td>
+        </tr>
+        <tr>
+          <td>🍓 <strong>Strawberry-Hype — Internet 10G</strong></td>
+          <td><span class="fruit-badge badge-internet">Internet</span></td>
+          <td><span class="price">CHF 50</span></td>
+          <td><span class="price">CHF 61</span></td>
+          <td>12 mois</td>
+          <td>Débit : 10 Gbit/s / 10 Gbit/s</td>
+          <td>Débit : 10 Gbit/s / 10 Gbit/s</td>
+        </tr>
+        <tr>
+          <td>🥭 <strong>Mango-Hype — TV Classic 2.0</strong></td>
+          <td><span class="fruit-badge badge-tv">TV</span></td>
+          <td><span class="price">CHF 50</span></td>
+          <td><span class="price">CHF 17</span></td>
+          <td>12 mois</td>
+          <td>—</td>
+          <td>Inclus : +275 chaînes (dont 243 HD)</td>
+        </tr>
+        <tr>
+          <td>🍑 <strong>Apricot-Hype — TV Premium 2.0</strong></td>
+          <td><span class="fruit-badge badge-tv">TV</span></td>
+          <td><span class="price">CHF 50</span></td>
+          <td><span class="price">CHF 23</span></td>
+          <td>12 mois</td>
+          <td>—</td>
+          <td>Inclus : chaînes + box + Web/Mobile</td>
+        </tr>
+        <tr>
+          <td>🍎 <strong>Pineapple-Hype — TV Top 2.0</strong></td>
+          <td><span class="fruit-badge badge-tv">TV</span></td>
+          <td><span class="price">CHF 50</span></td>
+          <td><span class="price">CHF 27</span></td>
+          <td>12 mois</td>
+          <td>—</td>
+          <td>Inclus : Premium + Replay sans pub</td>
+        </tr>
+        <tr>
+          <td>🫐 <strong>Blueberry-Hype — Pack Duo Maison</strong></td>
+          <td><span class="fruit-badge badge-pack">Pack</span></td>
+          <td><span class="price">CHF 50</span></td>
+          <td><span class="price">CHF 45</span></td>
+          <td>Sans engagement</td>
+          <td>—</td>
+          <td>Apple-Hype — Internet 20 (CHF 31.– / mois)</td>
+        </tr>
+        <tr>
+          <td>🍇 <strong>Raspberry-Hype — Pack Duo Nomade</strong></td>
+          <td><span class="fruit-badge badge-pack">Pack</span></td>
+          <td><span class="price">CHF 50</span></td>
+          <td><span class="price">CHF 53</span></td>
+          <td>Sans engagement</td>
+          <td>—</td>
+          <td>Apple-Hype — Internet 20 (CHF 31.– / mois)</td>
+        </tr>
+        <tr>
+          <td>🍊 <strong>Grapefruit-Hype — Pack Total</strong></td>
+          <td><span class="fruit-badge badge-pack">Pack</span></td>
+          <td><span class="price">CHF 50</span></td>
+          <td><span class="price">CHF 99</span></td>
+          <td>Sans engagement</td>
+          <td>—</td>
+          <td>Banana-Hype — Internet 100 (CHF 41.- / mois)</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="success-box" style="margin-top: 0.75rem;">
+      <strong>Synchronisé depuis l'API Wix le 19 mars 2026</strong>
+    </div>
+    <!-- SYNC:QUICKREF:END -->
+  </section>
+
+  <!-- ========== SECTION 6 : MATRICE ESCALADE ========== -->
+  <section id="escalade" class="section">
+    <div class="section-title"><span class="icon">🔺</span>Matrice d'Escalade Support</div>
+
+    <div class="matrix-grid" style="margin-bottom: 1rem;">
+
+      <div class="matrix-box matrix-l1">
+        <h4>🟢 Niveau 1 – Support Standard (Traitement direct)</h4>
+        <ul>
+          <li>Questions sur les prix / offres disponibles</li>
+          <li>Informations sur les produits boutique</li>
+          <li>Suivi commande / livraison (statut)</li>
+          <li>Procédures de retour (14 jours)</li>
+          <li>FAQ abonnements (engagement, résiliation)</li>
+          <li>Informations CGV / conditions commerciales</li>
+          <li>Vérification état de paiement</li>
+          <li>Problème de connexion basique (restart box)</li>
+          <li>Demande de facture / duplicata</li>
+          <li>Mise à jour coordonnées client</li>
+          <li>Questions portabilité numéro (information)</li>
+        </ul>
+      </div>
+
+      <div class="matrix-box matrix-l2">
+        <h4>🟡 Niveau 2 – Support Technique (Escalade interne)</h4>
+        <ul>
+          <li>Problèmes de connexion persistants (> 24h)</li>
+          <li>Débit constamment inférieur au contrat</li>
+          <li>Problèmes de qualité VoIP / téléphonie</li>
+          <li>Suspension de service (impayé > 10j)</li>
+          <li>Demandes de résiliation anticipée</li>
+          <li>Configuration avancée box/routeur</li>
+          <li>Dysfonctionnement Smart TV / Android</li>
+          <li>Portabilité numéro (activation)</li>
+          <li>Activation abonnement en erreur</li>
+          <li>Remise en service (CHF 100 à facturer)</li>
+        </ul>
+      </div>
+
+      <div class="matrix-box matrix-l3">
+        <h4>🔴 Niveau 3 – Direction / Juridique (Escalade direction)</h4>
+        <ul>
+          <li>Litiges commerciaux / contestation facture</li>
+          <li>Demandes de résiliation avec indemnités</li>
+          <li>Réclamations légales / mises en demeure</li>
+          <li>Abus Fair Use (résiliation pour motif)</li>
+          <li>Fraude / usurpation d'identité</li>
+          <li>Demandes RGPD / protection des données</li>
+          <li>Plaintes formelles clients pro</li>
+          <li>Demandes médias / presse</li>
+        </ul>
+      </div>
+
+      <div class="matrix-box matrix-tech">
+        <h4>🔵 Réseau / Partenaires (Escalade externe)</h4>
+        <ul>
+          <li>Panne réseau opérateur partenaire</li>
+          <li>Interruption de service planifiée (maintenance)</li>
+          <li>Incidents couvrant une zone géographique</li>
+          <li>Problèmes de couverture mobile (réseau tiers)</li>
+          <li>Incidents plateforme Wix (site e-commerce)</li>
+          <li>Problèmes de roaming UE</li>
+          <li>Défaillance fournisseur tiers (Netflix, etc.)</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="card" style="background: #f9fbe7; border-color: #a5d6a7;">
+      <h4 style="font-size: 0.9rem; font-weight: 700; color: var(--hype-green); margin-bottom: 0.5rem;">⏱️ SLA Interne estimé</h4>
+      <table style="margin: 0; border-radius: 6px; box-shadow: none; font-size: 0.83rem;">
+        <thead>
+          <tr style="background: #388e3c;">
+            <th>Niveau</th>
+            <th>Délai de réponse</th>
+            <th>Délai de résolution</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>L1 Standard</td><td>Immédiat (téléphone) / &lt; 4h (email)</td><td>&lt; 24h</td></tr>
+          <tr><td>L2 Technique</td><td>&lt; 2h</td><td>&lt; 48h</td></tr>
+          <tr><td>L3 Direction</td><td>&lt; 24h</td><td>Variable (juridique)</td></tr>
+          <tr><td>Réseau/Partenaires</td><td>&lt; 1h</td><td>Selon SLA opérateur</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--text-muted);">Délais estimés sur base des pratiques standards télécoms — à confirmer en interne.</p>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 7 : CONTACT ========== -->
+  <section id="contact" class="section">
+    <div class="section-title"><span class="icon">📞</span>Informations de Contact</div>
+
+    <div class="contact-grid">
+      <div class="contact-item">
+        <div class="icon">📞</div>
+        <div class="label">Téléphone Support 24/7</div>
+        <div class="value">+41 22 404 05 55</div>
+      </div>
+      <div class="contact-item">
+        <div class="icon">📧</div>
+        <div class="label">Email</div>
+        <div class="value">hype@hype.swiss</div>
+      </div>
+      <div class="contact-item">
+        <div class="icon">📍</div>
+        <div class="label">Adresse</div>
+        <div class="value">Rue des Gares 12<br>CH-1201 Genève</div>
+      </div>
+      <div class="contact-item">
+        <div class="icon">🌐</div>
+        <div class="label">Site web</div>
+        <div class="value">www.hypeswiss.ch</div>
+      </div>
+      <div class="contact-item">
+        <div class="icon">🏢</div>
+        <div class="label">Entité légale</div>
+        <div class="value">Hype Soft Sàrl<br>CHE-432.029.501</div>
+      </div>
+      <div class="contact-item">
+        <div class="icon">💬</div>
+        <div class="label">Chat en ligne</div>
+        <div class="value">Widget Wix sur le site<br>(Hype Assistant)</div>
+      </div>
+    </div>
+
+    <div class="success-box" style="margin-top: 1rem;">
+      <strong>Pages utiles :</strong>
+      <ul style="list-style: none; margin-top: 0.4rem; font-size: 0.85rem;">
+        <li>• <a href="https://www.hypeswiss.ch/conditions-generales" style="color: var(--hype-green);">CGV complètes</a></li>
+        <li>• <a href="https://www.hypeswiss.ch/remboursement" style="color: var(--hype-green);">Politique de remboursement</a></li>
+        <li>• <a href="https://www.hypeswiss.ch/expedition" style="color: var(--hype-green);">Politique d'expédition</a></li>
+        <li>• <a href="https://www.hypeswiss.ch/category/all-products" style="color: var(--hype-green);">Boutique – Tous les produits</a></li>
+        <li>• <a href="https://www.hypeswiss.ch/pricing-plans/tarifs-abonnements" style="color: var(--hype-green);">Tarifs & Abonnements</a></li>
+        <li>• <a href="https://www.hypeswiss.ch/a-propos" style="color: var(--hype-green);">À propos – FAQ</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <div style="margin-top: 2rem; padding: 1rem; border-top: 1px solid var(--border); font-size: 0.78rem; color: var(--text-muted); text-align: center;">
+    Guide Support Hype SWISS TELECOM · Mis à jour le 19 mars 2026· Version 1.1<br>
+    <span style="color: var(--hype-green);">Données extraites et confirmées depuis www.hypeswiss.ch</span>
+  </div>
+
+</div>
+</body>
+</html>
